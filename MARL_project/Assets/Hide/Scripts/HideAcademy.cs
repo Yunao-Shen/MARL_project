@@ -10,7 +10,7 @@ public class HideAcademy : Academy
     public float escaperFOV;
     public bool test = false; // 0: stop scoreboard after reach testRounds;  1: always keep scoreboard alive
     public int testRounds = 1000;
-
+    public float highspeedrate = 2;
 
     [HideInInspector]
     public float envLenth;

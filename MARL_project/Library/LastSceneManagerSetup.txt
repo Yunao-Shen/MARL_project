@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Hide/Scenes/EscaperHard.unity
+- path: Assets/Hide/Scenes/ChaserRecorder.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0

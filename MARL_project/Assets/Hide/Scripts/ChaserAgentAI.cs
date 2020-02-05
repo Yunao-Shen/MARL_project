@@ -57,11 +57,10 @@ public class ChaserAgentAI : Agent
     private float angleToEscaper;
 
     private float reward = 0.0f;
-    
+
 
     public HideAcademy hideAcademy;
     public GameObject winZone;
-
     private void Awake()
     {
         agentParameters.maxStep = hideAcademy.totalSteps;
@@ -298,16 +297,18 @@ public class ChaserAgentAI : Agent
     {
         float directionX = 0;
         float directionZ = 0;
+        float highspeed = hideAcademy.highspeedrate;
+        float chaserspeed = act[4] == 1 ? hideAcademy.chaserSpeed * highspeed : hideAcademy.chaserSpeed;
 
         if (act[0] == 1)
         {
-            directionX = -1;
+            directionX = act[4] == 1 ? -1 * highspeed : -1;
         }
         if (act[1] == 1)
         {
             if (directionX == 0)
             {
-                directionX = 1;
+                directionX = act[4] == 1 ? 1 * highspeed : 1;
             }
             else
             {
@@ -334,9 +335,9 @@ public class ChaserAgentAI : Agent
 
         this.rb.AddForce(-this.transform.forward * directionX * 10f);
         this.transform.Rotate(0f, directionZ * hideAcademy.angularSpeed, 0f);
-        if (rb.velocity.magnitude > hideAcademy.chaserSpeed)    // limit to max speed
+        if (rb.velocity.magnitude > chaserspeed)    // limit to max speed
         {
-            rb.velocity = rb.velocity.normalized * hideAcademy.chaserSpeed;
+            rb.velocity = rb.velocity.normalized * chaserspeed;
         }
     }
 

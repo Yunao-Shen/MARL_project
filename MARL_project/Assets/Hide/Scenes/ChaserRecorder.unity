@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4366757, g: 0.48427194, b: 0.5645252, a: 1}
+  m_IndirectSpecularColor: {r: 0.43667555, g: 0.48427123, b: 0.5645229, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -365,7 +365,7 @@ Camera:
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
+    x: 1
     y: 0
     width: 1
     height: 1
@@ -1064,7 +1064,7 @@ Camera:
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 1
+    x: 0
     y: 0
     width: 1
     height: 1
@@ -1174,6 +1174,7 @@ MonoBehaviour:
   escaperFOV: 45
   test: 1
   testRounds: 1000
+  highspeedrate: 2
   envLenth: 40
   envWidth: 20
   wins: 0

@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -404,10 +404,11 @@ public class HideAgentwAIChaser : Agent
         downarrowText.color = Color.black;
         leftarrowText.color = Color.black;
         rightarrowText.color = Color.black;
-
+        float highspeed = hideAcademy.highspeedrate;
+        float escapeespeed = act[4] == 1 ? hideAcademy.escaperSpeed * highspeed : hideAcademy.escaperSpeed;
         if (act[0] == 1)
         {
-            directionX = -1;
+            directionX = act[4] == 1 ? -1 * highspeed : -1;
             uparrowText.color = Color.red;
             downarrowText.color = Color.black;
         }
@@ -415,7 +416,7 @@ public class HideAgentwAIChaser : Agent
         {
             if (directionX == 0)
             {
-                directionX = 1;
+                directionX = act[4] == 1 ? 1 * highspeed : 1;
                 uparrowText.color = Color.black;
                 downarrowText.color = Color.red;
             }
@@ -452,9 +453,9 @@ public class HideAgentwAIChaser : Agent
         
         this.rb.AddForce(-this.transform.forward * directionX * 10f);
         this.transform.Rotate(0f, directionZ * hideAcademy.angularSpeed, 0f);
-        if (rb.velocity.magnitude > hideAcademy.escaperSpeed)    // limit to max speed
+        if (rb.velocity.magnitude > escapeespeed)    // limit to max speed
         {
-            rb.velocity = rb.velocity.normalized * hideAcademy.escaperSpeed;
+            rb.velocity = rb.velocity.normalized * escapeespeed;
         }
     }
 
